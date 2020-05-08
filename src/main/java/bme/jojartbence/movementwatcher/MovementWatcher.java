@@ -1,33 +1,26 @@
-package bme.jojartbence.service;
+package bme.jojartbence.movementwatcher;
 
 
 import java.util.TimerTask;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Service;
-
 import bme.jojartbence.model.Movement;
+import bme.jojartbence.service.MovementService;
+import bme.jojartbence.service.PaymentService;
 
-@Service
-@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
+
 public class MovementWatcher extends TimerTask {
-	
-	private Movement movement;
-	
-	public Movement getMovement() {
-		return movement;
-	}
 
-	public void setMovement(Movement movement) {
+	public MovementWatcher(Movement movement, PaymentService paymentService, MovementService movementService) {
+		super();
 		this.movement = movement;
+		this.paymentService = paymentService;
+		this.movementService = movementService;
 	}
 
-	@Autowired
+	private Movement movement;
+
 	PaymentService paymentService;
 	
-	@Autowired
 	MovementService movementService;
 	
 	public void run() {
@@ -35,6 +28,8 @@ public class MovementWatcher extends TimerTask {
 	}
 	
 	void movementOverCallback() {
+		System.out.println("TORLEEES\n");
+		
 		double unitPrice;
 		
 		if(movement.isOnMotorway() == true) {

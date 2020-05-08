@@ -2,6 +2,7 @@ package bme.jojartbence.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ public class Movement {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	Truck truck;
 	@Column(columnDefinition = "DATETIME")
 	Date timeFrom;

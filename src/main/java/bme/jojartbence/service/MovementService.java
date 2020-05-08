@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.Timer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import bme.jojartbence.model.Movement;
 import bme.jojartbence.repository.MovementRepository;
+import bme.jojartbence.movementwatcher.MovementWatcher;
 
 @Service
 public class MovementService {
 	
 	@Autowired
-	private ApplicationContext applicationContext;
-
-	@Autowired
 	private MovementRepository movementRepo;
+	
+	@Autowired
+	private PaymentService paymentService;
 	
 	public List<Movement> getAllMovements() {
 		return movementRepo.findAll();
@@ -25,12 +25,11 @@ public class MovementService {
 	
 	public Movement addMovement(Movement movement) {
 		
-		MovementWatcher movementWatcher = applicationContext.getBean(MovementWatcher.class);
-		movementWatcher.setMovement(movement);
-		
+		MovementWatcher watcher = new MovementWatcher(movement, paymentService, this);
+			 		
 		Timer timer = new Timer();
-		timer.schedule(movementWatcher, movement.getTimeTo());
-		
+		timer.schedule(watcher, movement.getTimeTo());
+				
 		return movementRepo.save(movement);
 	}
 	
