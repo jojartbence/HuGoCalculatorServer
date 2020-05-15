@@ -18,10 +18,8 @@ public class Movement {
 	private Long id;
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	Truck truck;
-	@Column(columnDefinition = "DATETIME")
-	Date timeFrom;
-	@Column(columnDefinition = "DATETIME")
-	Date timeTo;
+	long timeFrom;
+	long timeTo;
 	int distance;
 	boolean onMotorway;
 	
@@ -35,19 +33,19 @@ public class Movement {
 		this.truck = truck;
 	}
 
-	public Date getTimeFrom() {
+	public long getTimeFrom() {
 		return timeFrom;
 	}
 
-	public void setTimeFrom(Date timeFrom) {
+	public void setTimeFrom(long timeFrom) {
 		this.timeFrom = timeFrom;
 	}
 
-	public Date getTimeTo() {
+	public long getTimeTo() {
 		return timeTo;
 	}
 
-	public void setTimeTo(Date timeTo) {
+	public void setTimeTo(long timeTo) {
 		this.timeTo = timeTo;
 	}
 
