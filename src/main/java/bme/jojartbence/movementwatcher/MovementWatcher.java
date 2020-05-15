@@ -28,7 +28,7 @@ public class MovementWatcher extends TimerTask {
 	}
 	
 	void movementOverCallback() {
-		System.out.println("TORLEEES\n");
+		System.out.println("Movement over: deleting from database & withdrawing money from balance");
 		
 		double unitPrice;
 		
