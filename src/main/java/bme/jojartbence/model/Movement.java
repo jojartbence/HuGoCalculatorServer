@@ -16,7 +16,7 @@ public class Movement {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	Truck truck;
 	@Column(columnDefinition = "DATETIME")
 	Date timeFrom;
