@@ -15,7 +15,7 @@ public class PaymentService {
 			InputStream is = getClass().getClassLoader().getResourceAsStream("config.properties");
 			props.load(is);
 			baseBalance = Integer.parseInt(props.getProperty("basebalance"));
-		} catch (IOException e) {
+		} catch (Exception e) {
 			baseBalance = 100000;
 			e.printStackTrace();
 		}
