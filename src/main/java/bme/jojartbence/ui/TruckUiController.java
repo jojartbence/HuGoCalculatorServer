@@ -4,12 +4,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import bme.jojartbence.service.MovementService;
 import bme.jojartbence.service.TruckService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
