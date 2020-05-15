@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import bme.jojartbence.service.MovementService;
 import bme.jojartbence.service.TruckService;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,11 +26,15 @@ public class TruckUiController {
 	private TruckService truckService;
 	
 	public void refresh() {
-		ArrayList<String> licensePlateNumbers = new ArrayList<String>();
-		truckService.getAllTrucks().forEach(truck -> licensePlateNumbers.add(truck.getLicensePlateNumber()));
-		
-		ObservableList<String> truckLicensePlateNumbers = FXCollections.observableArrayList(licensePlateNumbers);
-		
-		trucks.setItems(truckLicensePlateNumbers);
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				ArrayList<String> licensePlateNumbers = new ArrayList<String>();
+				truckService.getAllTrucks().forEach(truck -> licensePlateNumbers.add(truck.getLicensePlateNumber()));
+				
+				ObservableList<String> truckLicensePlateNumbers = FXCollections.observableArrayList(licensePlateNumbers);
+				trucks.setItems(truckLicensePlateNumbers);
+			}
+		});
 	}
 }
