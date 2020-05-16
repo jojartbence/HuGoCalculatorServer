@@ -8,17 +8,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
+/**
+ * @author Bence Jójárt <jojart.bence96@gmail.com>
+ * @version 1.0
+ * @since 1.0
+ * 
+ * This class represents a movement entity.
+ */
 @Entity(name="movements")
 public class Movement {
 
+	/**
+	 * Auto-generated ID. Key in the database.
+	 */
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Long id;
+	
+	/**
+	 * Truck that owns the movement.
+	 */
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	private Truck truck;
+	
+	/**
+	 * Movement from in millis.
+	 */
 	private long timeFrom;
+	
+	/**
+	 * Movement to in millis.
+	 */
 	private long timeTo;
+	
+	/**
+	 * Distance of movement in km.
+	 */
 	private int distance;
+	
+	/**
+	 * True if movement happened on motorway. False if on main road.
+	 */
 	private boolean onMotorway;
 	
 	/**

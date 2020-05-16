@@ -8,12 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+/**
+ * @author Bence Jójárt <jojart.bence96@gmail.com>
+ * @version 1.0
+ * @since 1.0
+ * 
+ * This class represents a truck entity.
+ */
 @Entity(name="trucks")
 public class Truck {
-	
+		
+	/**
+	 * Auto-generated ID. Key in the database.
+	 */
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Long id;
+	
+	/**
+	 * License plate number in the following format: ABC-123
+	 */
 	private String licensePlateNumber;
 	
 	/**
