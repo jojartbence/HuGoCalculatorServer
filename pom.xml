@@ -9,10 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>bme.jojartbence</groupId>
-	<artifactId>utdij-kalkulator</artifactId>
+	<artifactId>hugocalculator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>utdij-kalkulator</name>
-	<description>Utdij kalkulator backend szerver</description>
+	<name>HuGoCalculator</name>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -55,4 +54,5 @@
 		</plugins>
 	</build>
 
+	<description>Backend server of an application used for calculating Hu-Go e-toll prices.</description>
 </project>

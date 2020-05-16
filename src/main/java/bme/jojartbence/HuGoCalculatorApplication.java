@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 
 @SpringBootApplication
-public class UtdijKalkulatorApplication extends Application {
+public class HuGoCalculatorApplication extends Application {
 	
 	private ConfigurableApplicationContext springContext;
 	private Parent rootNode;
@@ -24,7 +24,7 @@ public class UtdijKalkulatorApplication extends Application {
 	
 	@Override
 	public void init() throws Exception {
-		springContext = SpringApplication.run(UtdijKalkulatorApplication.class);
+		springContext = SpringApplication.run(HuGoCalculatorApplication.class);
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/javafx/movements.fxml"));
 		fxmlLoader.setControllerFactory(springContext::getBean);
 		rootNode = fxmlLoader.load();
