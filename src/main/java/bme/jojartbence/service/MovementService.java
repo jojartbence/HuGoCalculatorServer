@@ -1,5 +1,6 @@
 package bme.jojartbence.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 
@@ -28,7 +29,7 @@ public class MovementService {
 		MovementWatcher watcher = new MovementWatcher(movement, paymentService, this);
 			 		
 		Timer timer = new Timer();
-		timer.schedule(watcher, movement.getTimeTo());
+		timer.schedule(watcher, new Date(movement.getTimeTo()));
 				
 		return movementRepo.save(movement);
 	}
