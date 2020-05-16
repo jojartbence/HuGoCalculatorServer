@@ -15,6 +15,15 @@ public class Truck {
 	@Id
 	private Long id;
 	private String licensePlateNumber;
+	
+	/**
+	 * EURO emission category of the truck.
+	 * 0: >= EURO V
+	 * 1: EURO II - EURO IV
+	 * 2: <= EURO I
+	 */
+	private int emissionCategory;
+	
 	@OneToMany(mappedBy = "truck")
 	private List<Movement> movements;
 	
@@ -31,5 +40,13 @@ public class Truck {
 	}
 	public void setLicensePlateNumber(String licensePlateNumber) {
 		this.licensePlateNumber = licensePlateNumber;
+	}
+
+	public int getEmissionCategory() {
+		return emissionCategory;
+	}
+
+	public void setEmissionCategory(int emissionCategory) {
+		this.emissionCategory = emissionCategory;
 	}
 }
