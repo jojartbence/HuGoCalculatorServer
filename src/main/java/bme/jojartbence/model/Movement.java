@@ -15,11 +15,11 @@ public class Movement {
 	@Id
 	private Long id;
 	@ManyToOne(cascade = {CascadeType.MERGE})
-	Truck truck;
-	long timeFrom;
-	long timeTo;
-	int distance;
-	boolean onMotorway;
+	private Truck truck;
+	private long timeFrom;
+	private long timeTo;
+	private int distance;
+	private boolean onMotorway;
 	
 	/**
 	 * Vehicle category based on number of axles.
