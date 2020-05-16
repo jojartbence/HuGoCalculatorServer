@@ -15,11 +15,19 @@ public class Movement {
 	@Id
 	private Long id;
 	@ManyToOne(cascade = {CascadeType.MERGE})
-	Truck truck;
-	long timeFrom;
-	long timeTo;
-	int distance;
-	boolean onMotorway;
+	private Truck truck;
+	private long timeFrom;
+	private long timeTo;
+	private int distance;
+	private boolean onMotorway;
+	
+	/**
+	 * Vehicle category based on number of axles.
+	 * 0: J2 - two axles
+	 * 1: J3 - three axles
+	 * 2: J4 - four or more axles
+	 */
+	private int jCategory;
 	
 	private Movement() {}
 
@@ -69,5 +77,13 @@ public class Movement {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public int getjCategory() {
+		return jCategory;
+	}
+
+	public void setjCategory(int jCategory) {
+		this.jCategory = jCategory;
 	}
 }

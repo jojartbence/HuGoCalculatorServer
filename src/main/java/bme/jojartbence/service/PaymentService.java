@@ -19,7 +19,7 @@ public class PaymentService {
 			baseBalance = 100000;
 			e.printStackTrace();
 		}
-		
+		balance = baseBalance;
 	}
 
 	public double getBalance() {
